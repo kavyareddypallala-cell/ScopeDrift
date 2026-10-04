@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ScopeDrift - Project Scope Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <div class="logo">
+                SD
+            </div>
+
+            <h1>ScopeDrift</h1>
+
+            <p>
+                Detect when a project is drifting away from its original requirements.
+            </p>
+
+        </header>
+
+
+        <section class="input-area">
+
+            <div class="input-card">
+
+                <h2>Original Project Scope</h2>
+
+                <p class="helper">
+                    Enter what the project was originally supposed to contain.
+                </p>
+
+                <textarea
+                    id="originalScope"
+                    placeholder="Example:
+Student registration
+Attendance marking
+Monthly attendance reports
+Admin login
+Student dashboard"
+                ></textarea>
+
+            </div>
+
+
+            <div class="input-card">
+
+                <h2>Current Project Scope</h2>
+
+                <p class="helper">
+                    Enter what is currently being developed.
+                </p>
+
+                <textarea
+                    id="currentScope"
+                    placeholder="Example:
+Student registration
+Attendance marking
+Monthly reports
+Admin login
+Student dashboard
+AI chatbot
+Student messaging
+Event management"
+                ></textarea>
+
+            </div>
+
+        </section>
+
+
+        <div class="actions">
+
+            <button onclick="analyzeScope()">
+                Analyze Scope
+            </button>
+
+            <button
+                class="sample"
+                onclick="loadExample()">
+                Load Example
+            </button>
+
+            <button
+                class="clear"
+                onclick="clearAll()">
+                Clear
+            </button>
+
+        </div>
+
+
+        <section
+            id="results"
+            class="results hidden">
+
+            <h2>Scope Analysis</h2>
+
+
+            <div class="score-container">
+
+                <div class="score-circle">
+
+                    <span id="score">
+                        0%
+                    </span>
+
+                    <small>
+                        Drift
+                    </small>
+
+                </div>
+
+
+                <div class="score-info">
+
+                    <h3 id="status">
+                        -
+                    </h3>
+
+                    <p id="statusDescription">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <span>
+                        Original Requirements
+                    </span>
+
+                    <strong id="originalCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Completed
+                    </span>
+
+                    <strong id="completedCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        New Features
+                    </span>
+
+                    <strong id="newCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        Missing
+                    </span>
+
+                    <strong id="missingCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis-grid">
+
+
+                <div class="analysis-card">
+
+                    <h3>
+                        🟢 Requirements Still On Track
+                    </h3>
+
+                    <ul id="matchedList"></ul>
+
+                </div>
+
+
+                <div class="analysis-card">
+
+                    <h3>
+                        🔴 Newly Introduced Features
+                    </h3>
+
+                    <ul id="newList"></ul>
+
+                </div>
+
+
+                <div class="analysis-card">
+
+                    <h3>
+                        ⚠️ Missing Requirements
+                    </h3>
+
+                    <ul id="missingList"></ul>
+
+                </div>
+
+
+                <div class="analysis-card">
+
+                    <h3>
+                        💡 Recommendation
+                    </h3>
+
+                    <p id="recommendation"></p>
+
+                </div>
+
+            </div>
+
+
+            <div class="explanation">
+
+                <h3>
+                    How was this calculated?
+                </h3>
+
+                <p id="explanationText"></p>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            ScopeDrift • Requirement Intelligence Tool
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
